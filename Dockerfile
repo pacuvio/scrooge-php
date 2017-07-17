@@ -14,6 +14,7 @@ RUN set -xe; \
     mkdir /var/www && chown www-data:www-data /var/www
 
 ADD https://getcomposer.org/composer.phar /bin/composer
+ADD www.conf /etc/php7/php-fpm.d/www.conf
 
 ENTRYPOINT ["tini", "--"]
 
