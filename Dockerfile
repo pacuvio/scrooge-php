@@ -22,4 +22,8 @@ ENTRYPOINT ["tini", "--"]
 
 WORKDIR /var/www
 
-CMD ["php-fpm7", "-F"]
+# Workaround https://bugs.php.net/bug.php?id=71880
+# see https://github.com/docker-library/php/issues/207#issuecomment-276296087
+ENV LOG_STREAM="/tmp/stdout"
+RUN mkfifo $LOG_STREAM && chmod 777 $LOG_STREAM
+CMD ["/bin/sh", "-c", "php-fpm7 -D | tail -f $LOG_STREAM"]
