@@ -17,7 +17,7 @@ RUN set -xe; \
 ADD https://getcomposer.org/composer.phar /bin/composer
 ADD www.conf /etc/php7/php-fpm.d/www.conf
 
-RUN chown www-data:www-data /bin/composer && chmod ug+rwx /bin/composer
+RUN chown www-data:www-data /bin/composer && chmod ugo+rwx /bin/composer
 
 ENTRYPOINT ["tini", "--"]
 
