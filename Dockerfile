@@ -6,7 +6,7 @@ RUN set -xe; \
         php7-pdo_mysql php7-pdo_sqlite php7-xml php7-mbstring php7-iconv \
         php7-posix php7-pdo php7-json php7-session php7-ctype php7-tokenizer \
         php7-simplexml php7-zlib php7-mcrypt php7-intl php7-mysqli php7-opcache \
-        php7-apcu php7-xdebug \
+        php7-apcu php7-xdebug php7-xmlwriter \
         curl mysql-client; \
     \
     addgroup -g 1000 -S www-data; \
